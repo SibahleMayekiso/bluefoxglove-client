@@ -1,0 +1,31 @@
+image: node:latest
+
+stages:
+  - format
+  - build
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+
+format_job:
+  stage: format
+  before_script:
+    - npm install
+  script:
+    - npm run format
+
+build_job:
+  stage: build
+  before_script:
+    - npm install
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+
+deploy_job:
+  stage: deploy
+  script: echo "Deplying to server"
