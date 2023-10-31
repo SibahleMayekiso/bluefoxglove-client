@@ -32,5 +32,5 @@ build_job:
 deploy_job:
   stage: deploy
   script: echo "Deplying to server"
-  tags: 
+  tags:
     - linux
