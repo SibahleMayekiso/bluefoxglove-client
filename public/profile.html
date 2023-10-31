@@ -30,17 +30,31 @@
       #welcomePlayer {
         text-transform: uppercase;
       }
+
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
     </style>
   </head>
   <body>
-    <h3 id="welcomePlayer">WELCOME TO THE GAME</h3>
+    <h3 id="welcomePlayer">PLAYER PROFILE</h3>
     <div class="overlay">
       <div class="overlay-content">
-        <a href="profile.html">Profile</a>
-        <a href="game.html">Game</a>
-        <a>Logout</a>
+        <div id="playerProfileContainer">
+          <table id="playerProfileInformation"></table>
+        </div>
+        <a href="menu.html">Main Menu</a>
       </div>
     </div>
-    <script src="./js/classes/MainMenu.js"></script>
+
+    <script src="./js/classes/PlayerProfile.js"></script>
   </body>
 </html>
