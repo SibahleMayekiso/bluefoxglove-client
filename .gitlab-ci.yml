@@ -1,36 +1,36 @@
 image: node:latest
 
 stages:
-  - format
-  - build
-  - deploy
+    - format
+    - build
+    - deploy
 
 cache:
-  paths:
-    - node_modules/
+    paths:
+        - node_modules/
 
 format_job:
-  stage: format
-  before_script:
-    - npm install
-  script:
-    - npm run format
-  tags:
-    - linux
+    stage: format
+    before_script:
+        - npm install
+    script:
+        - npm run format
+    tags:
+        - linux
 build_job:
-  stage: build
-  before_script:
-    - npm install
-  script:
-    - npm run build
-  tags:
-    - linux
-  artifacts:
-    paths:
-      - dist/
+    stage: build
+    before_script:
+        - npm install
+    script:
+        - npm run build
+    tags:
+        - linux
+    artifacts:
+        paths:
+            - dist/
 
 deploy_job:
-  stage: deploy
-  script: echo "Deplying to server"
-  tags:
-    - linux
+    stage: deploy
+    script: echo "Deplying to server"
+    tags:
+        - linux

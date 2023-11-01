@@ -6,14 +6,14 @@ This project serves as the Client for the Bluefoxglove PvP Multiplayer Game.
 
 ---
 
-- Ensure that you have read the project wiki if you intend to contribute. You can find the wiki [here](https://gitlab.ardentheartgames.com/neutral-good-mentorship-public/blue-foxglove/blue-foxglove-client/-/wikis/home).
-- Node.js installed locally
-  - Please note that using the Current version is known for being problemtaic for the project so its recommended to use the most stable version (The one with the LTS tag) on it
-  - To ensure node is installed run `node -v`
-- Terminal
-  - Any would be fine (Powershell and Git Bash is recommended)
-- Text Editor
-  - Any would be fine (VS Code is recommended)
+-   Ensure that you have read the project wiki if you intend to contribute. You can find the wiki [here](https://gitlab.ardentheartgames.com/neutral-good-mentorship-public/blue-foxglove/blue-foxglove-client/-/wikis/home).
+-   Node.js installed locally
+    -   Please note that using the Current version is known for being problemtaic for the project so its recommended to use the most stable version (The one with the LTS tag) on it
+    -   To ensure node is installed run `node -v`
+-   Terminal
+    -   Any would be fine (Powershell and Git Bash is recommended)
+-   Text Editor
+    -   Any would be fine (VS Code is recommended)
 
 ### Setup
 

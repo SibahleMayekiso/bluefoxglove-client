@@ -1,22 +1,22 @@
 {
-  "scripts": {
-    "format": "prettier --config .prettierrc --write .",
-    "start": "node app.js",
-    "start-dev": "nodemon app.js",
-    "build": "webpack"
-  },
-  "dependencies": {
-    "express": "4.18.2",
-    "node-fetch": "^2.6.1"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.1",
-    "pre-commit": "^1.2.2",
-    "prettier": "^3.0.3",
-    "webpack": "^5.88.2",
-    "webpack-cli": "^5.1.4"
-  },
-  "pre-commit": [
-    "format"
-  ]
+    "scripts": {
+        "format": "prettier --config .prettierrc --write .",
+        "start": "node app.js",
+        "start-dev": "nodemon app.js",
+        "build": "webpack"
+    },
+    "dependencies": {
+        "express": "4.18.2",
+        "node-fetch": "^2.6.1"
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.1",
+        "pre-commit": "^1.2.2",
+        "prettier": "^3.0.3",
+        "webpack": "^5.88.2",
+        "webpack-cli": "^5.1.4"
+    },
+    "pre-commit": [
+        "format"
+    ]
 }
