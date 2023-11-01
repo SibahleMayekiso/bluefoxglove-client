@@ -1,60 +1,60 @@
 <html>
-  <head>
-    <style>
-      body {
-        margin: 0;
-        background-color: black;
-        color: whitesmoke;
-        text-align: center;
-        padding: 15%;
-        font-size: 30px;
-      }
+    <head>
+        <style>
+            body {
+                margin: 0;
+                background-color: black;
+                color: whitesmoke;
+                text-align: center;
+                padding: 15%;
+                font-size: 30px;
+            }
 
-      .overlay-content {
-        text-align: center;
-      }
+            .overlay-content {
+                text-align: center;
+            }
 
-      .overlay-content a {
-        display: block;
-        padding: 10px;
-        text-decoration: none;
-        font-size: 36px;
-        transition: color 0.3s;
-        color: white;
-      }
+            .overlay-content a {
+                display: block;
+                padding: 10px;
+                text-decoration: none;
+                font-size: 36px;
+                transition: color 0.3s;
+                color: white;
+            }
 
-      .overlay-content a:hover {
-        color: goldenrod;
-      }
+            .overlay-content a:hover {
+                color: goldenrod;
+            }
 
-      #welcomePlayer {
-        text-transform: uppercase;
-      }
+            #welcomePlayer {
+                text-transform: uppercase;
+            }
 
-      table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-      }
-      td,
-      th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-      }
-    </style>
-  </head>
-  <body>
-    <h3 id="welcomePlayer">PLAYER PROFILE</h3>
-    <div class="overlay">
-      <div class="overlay-content">
-        <div id="playerProfileContainer">
-          <table id="playerProfileInformation"></table>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            td,
+            th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+        </style>
+    </head>
+    <body>
+        <h3 id="welcomePlayer">PLAYER PROFILE</h3>
+        <div class="overlay">
+            <div class="overlay-content">
+                <div id="playerProfileContainer">
+                    <table id="playerProfileInformation"></table>
+                </div>
+                <a href="menu.html">Main Menu</a>
+            </div>
         </div>
-        <a href="menu.html">Main Menu</a>
-      </div>
-    </div>
 
-    <script src="./js/classes/PlayerProfile.js"></script>
-  </body>
+        <script src="./js/classes/PlayerProfile.js"></script>
+    </body>
 </html>
