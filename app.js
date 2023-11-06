@@ -131,6 +131,46 @@ app.patch('/updateselectedcharacter', async (req, res) => {
     }
 })
 
+app.get('/createplayerprofile', async (req, res) => {
+    const playerId = '651abf2d32724cb220ecec1d'
+
+    //Most data will be default data. Credentials will come form the session cookie
+    const data = {
+        id: '',
+        credentials: {
+            playerId: playerId,
+            playerName: 'JoeDoe'
+        },
+        selectedCharacter: {
+            characterId: '651ece8f661aec2ba21a375d',
+            characterName: 'Guppy',
+            characterType: 'Soldier',
+            characterMaxHealth: 100,
+            characterMaxSpeed: 5.0
+        },
+        longestSurvivalTime: 0,
+        totalPlayTime: 0,
+        numberOfGamesPlayed: 0,
+        killCount: 0
+    }
+
+    try {
+        const response = await fetch(`https://localhost:8080/playerprofile`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+        if (!response.ok) {
+            throw new Error(`Error! status: ${response.status}`)
+        }
+        const playerData = await response.json()
+        res.json(playerData)
+    } catch (error) {
+        console.error('Error fetching player data:', error)
+        res.status(500).json({ error: 'Failed to fetch player data' })
+    }
+})
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })

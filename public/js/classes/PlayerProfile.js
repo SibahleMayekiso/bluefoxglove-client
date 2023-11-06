@@ -103,9 +103,15 @@ class PlayerProfile {
             }
         }
     }
+
+    async createPlayerProfile() {
+        await fetch(`http://localhost:3000/createplayerprofile`)
+        console.log('Player Profile Created')
+    }
 }
 
 const playerProfile = new PlayerProfile()
 playerProfile
-    .getPlayerProfile()
+    .createPlayerProfile()
+    .then((resolve) => playerProfile.getPlayerProfile())
     .then((resolve) => playerProfile.getAllCharcaters())
