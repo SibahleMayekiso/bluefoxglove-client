@@ -2,7 +2,9 @@ class PlayerProfile {
     playerProfile
 
     async getPlayerProfile() {
-        const response = await fetch(`http://localhost:3000/getplayerprofile`)
+        const response = await fetch(`http://localhost:3000/getplayerprofile`, {
+            credentials: 'include' //This tells the browser to include cookies in the request
+        })
         const playerData = await response.json()
         this.playerProfile = playerData[0]
 
@@ -105,7 +107,9 @@ class PlayerProfile {
     }
 
     async createPlayerProfile() {
-        await fetch(`http://localhost:3000/createplayerprofile`)
+        await fetch(`http://localhost:3000/createplayerprofile`, {
+            credentials: 'include' //This tells the browser to include cookies in the request
+        })
         console.log('Player Profile Created')
     }
 }

@@ -1,15 +1,18 @@
 const express = require('express')
 const fetch = require('node-fetch')
+const cookieParser = require('cookie-parser')
 const app = express()
 const port = 3000
 
 app.use(express.static('public'))
 app.use(express.json())
+app.use(cookieParser())
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/signup.html')
 })
 app.get('/credentials', async (req, res) => {
-    const playerId = '651abf2d32724cb220ecec1d'
+    const playerId = req.cookies.playerId
     try {
         const response = await fetch(
             `https://localhost:8080/credentials/${playerId}`
@@ -45,7 +48,17 @@ app.post('/process_post', async function (req, res) {
 
         const responseData = await response.json()
 
+        res.cookie('playerId', responseData.playerId, {
+            maxAge: 900000,
+            httpOnly: true
+        })
+        res.cookie('playerName', responseData.playerName, {
+            maxAge: 900000,
+            httpOnly: true
+        })
         console.log(responseData)
+
+        res.status(200).json(responseData) //Response must be sent to client so that cookies can be set in the client's browser
     } catch (error) {
         console.error(error)
         res.status(500).send('Error')
@@ -53,7 +66,7 @@ app.post('/process_post', async function (req, res) {
 })
 
 app.get('/getplayerprofile', async (req, res) => {
-    const playerId = '651abf2d32724cb220ecec1d'
+    const playerId = req.cookies.playerId
     try {
         const response = await fetch(
             `https://localhost:8080/playerprofile/${playerId}`
@@ -107,7 +120,7 @@ app.get('/getallcharacters', async (req, res) => {
 })
 
 app.patch('/updateselectedcharacter', async (req, res) => {
-    const playerId = '651abf2d32724cb220ecec1d'
+    const playerId = req.cookies.playerId
     var data = req.body
 
     try {
@@ -132,14 +145,16 @@ app.patch('/updateselectedcharacter', async (req, res) => {
 })
 
 app.get('/createplayerprofile', async (req, res) => {
-    const playerId = '651abf2d32724cb220ecec1d'
+    const playerId = req.cookies.playerId
+    const playerName = req.cookies.playerName
 
-    //Most data will be default data. Credentials will come form the session cookie
+    console.log(`Here's a cookie 🍪: ${playerName}`)
+
     const data = {
         id: '',
         credentials: {
             playerId: playerId,
-            playerName: 'JoeDoe'
+            playerName: playerName
         },
         selectedCharacter: {
             characterId: '651ece8f661aec2ba21a375d',
