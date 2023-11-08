@@ -26,7 +26,8 @@ class SignUp {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(playerData)
+                body: JSON.stringify(playerData),
+                credentials: 'include' //This tells the browser to include cookies in the request
             })
 
             const result = await response.json()

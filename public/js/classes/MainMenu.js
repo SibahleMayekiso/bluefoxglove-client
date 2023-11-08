@@ -1,7 +1,9 @@
 class MainMenu {
     async getPlayerName() {
         try {
-            const response = await fetch('http://localhost:3000/credentials')
+            const response = await fetch('http://localhost:3000/credentials', {
+                credentials: 'include' //This tells the browser to include cookies in the request
+            })
             const playerData = await response.json()
             const playerName = playerData.playerName
             const welcomePlayerElement =
