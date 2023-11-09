@@ -27,6 +27,7 @@ app.get('/credentials', async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch player data' })
     }
 })
+
 app.post('/process_post', async function (req, res) {
     try {
         const playerData = {

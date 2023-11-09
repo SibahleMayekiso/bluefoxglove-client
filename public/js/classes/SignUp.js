@@ -2,12 +2,6 @@ class SignUp {
     constructor() {
         const form = document.getElementById('signInForm')
         form.addEventListener('submit', this.handleSubmit.bind(this))
-
-        const signupButton = document.getElementById('signupButton')
-        signupButton.addEventListener(
-            'click',
-            this.handleSignupButtonClick.bind(this)
-        )
     }
 
     async handleSubmit(event) {
@@ -30,13 +24,11 @@ class SignUp {
                 credentials: 'include' //This tells the browser to include cookies in the request
             })
 
-            const result = await response.json()
+            if (response.ok) {
+                const result = await response.json()
 
-            document.getElementById('result').textContent = JSON.stringify(
-                result,
-                null,
-                2
-            )
+                this.handleSignupButtonClick()
+            }
         } catch (error) {
             console.error(error)
         }
